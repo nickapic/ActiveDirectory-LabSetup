@@ -16,25 +16,6 @@ classoption: oneside
 code-block-font-size: \scriptsize 
 ---
 
-# Task to Accomplish 
-
-
-1. 		 Work in groups of 3 or individually.
-2.       Use VMware, vSphere Hypervisor, and other products from that manufacturer as needed.
-3.       Build a system from at least 7 computers with at least 3 real (then at least 4 virtuals). 
-4.       Use at least 3 different operating systems.
-5.       Create users with different access rights in vSphere Hypervisor.
-6.       All computers must be interconnected.
-7.       Use more than just the ping command to demonstrate a connection.
-8.       Create optional (at least one):
-8.1.    Data storage.
-8.2.    Web hosting.
-8.3.    e-mail.
-9.      Capture the workflow (e.g. in screenshots) and provide brief comments.
-10.     Give reasons why you have allocated resources (CPU, memory, etc.) in this way.
-11.     Clearly separate the work of each group member. If this is not possible, mark such work episodes separately.
-12.     Present the results of the work (drawings, diagrams, text documents, presentations, tables) in a way that shows that the system is working (or why it is not working).
-
 
 # Setting Up the Required Softwares
 
