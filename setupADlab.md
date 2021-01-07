@@ -110,3 +110,5 @@ So after we have our Windows Server and VMWare Workstation installed lets go to 
 Now after clicking on it we will get a pop up for the wizard and we should just click next with the Typical(Recommended) option selected.
 
 ![](install1.png)
+
+then like shown previously choose the downloaded file in the Use ISO Image section and press next and then 
