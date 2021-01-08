@@ -244,3 +244,5 @@ and then lets make a share which we can do by pressing at the File and Storage S
 ![](share1.png)
 
 and then click on the Tasks dropdown menu and click on the New Share option and then in the popup lets click Next 2 times after which we can name our share MemoryCore and press Next again and then press next 3 times and clicking on the create button.
+
+
