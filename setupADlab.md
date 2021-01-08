@@ -55,7 +55,7 @@ Link : https://ubuntu.com/download/desktop
 and click the download button for it to download the iso file for us.
 
 
-# Installing all the Virtual Machines
+# Instalation and Domain Configuration
 
 Now with all the virtual machines ISO files and VMWare files download lets move forward and install them on VMWare so we can use them for setting up our lab.
 
@@ -101,7 +101,7 @@ and then we can see the results of pinging the server here :
 
 ![](kaliping.png)
 
-## Installing Windows Server 
+## Installing Windows Server and Setting Up our Domain Controller
 
 So after we have our Windows Server and VMWare Workstation installed lets go to VMWare Workstation and then click the button create a new virtual machine 
 
@@ -113,9 +113,60 @@ Now after clicking on it we will get a pop up for the wizard and we should just 
 
 then like shown previously choose the downloaded file in the Use ISO Image section and press next and then we have to select the version of windows we have installed in most cases its already detected by VMWare but if not correct select it from Dropdown menu.
 
--- Insert picture for installing the AD Machine.
+![](install2win.png)
 
 and then press next and uncheck the checkbox which says power on this virtual machine after creation as we still wanna make changes before we start which is mainly removing the Floppy Option in the Hardware tab as this will lead to issues when starting up some times.
 
+![](floopydelete.png)
+
 Here click on remove button and then our server is ready to boot up.
 
+Then lets boot this up its gonna load up and it starts up with a boot up window like so :
+
+![](winsetup.png)
+
+Here click next and press Install Now and for the Operating System we wanna install we will select the Standard Evaluation Desktop Experience and then after select agree to the terms of service press Custom Windows Install and select the disk we allocated to our windows 
+
+![](disk.png)
+
+and then after clicking next we will start Installing Windows and will hve to wait for a bit as this process can take some time.
+
+And after installing the system will restart itself and now after rebooting its gonna give us a pop up about cusotmizing settings where its gonna ask us to set a password for the buil-in adminsitrator and as this is a test enviornment we can put whatever we like :
+
+I am gonna with this set of credentials 
+Administrator:SecureP@ssword!1
+
+
+So our password for the Domain Controller is going to be : SecureP@ssword!1
+
+and to press ctrl+alt+delete on virtual machines we have to use the drop down menu.
+
+Now lets login with the password we just set and by default the Server Manager Dashboard will open up for us .
+
+![](serverdash.png)
+
+Before setting up the DC lets change its name and make it more vissible/noticable i will name my machines with a Star Wars  theme to kind of have a harmony so you can do so as well by seraching the view your pc name in the search bar like so and then clicking on the Rename this PC option and changing the name in the field.
+
+![](pcname.png)
+
+
+![](pcname2.png)
+
+And then again we would need to restart our PC and login again now its time to customize our Domain Controller and making it a Domain Controller and now in Server Dashboard lets go to Manage tab and click on the Add roles and features button and now in the setup installer file we have to just press next until we get the Server Roles section where we have to then select the Active Directory Domain Services option and add that feature and then after pressing next a few times again we will be in the confirmation tab where we just press the Install button.
+
+![](adroles.png)
+
+
+![](installad.png)
+
+and after its done lets now close this installation window and click on the Flag(Notification) Icon where we then will click on the Promote this erver to a Domain COntroller button to make this our Domian Controller and now we will get the Deployment Configuration Window where we can select a few options in our we want to make our server a Domain COntroller of a Forest so we click the Add a new Forest option and we can then name this Empire.local normally the naming standard can go to stuff like Companyname.corp, Corp.local , etc. 
+
+Then we need to set another password for our DC which in my case i am choosing : Iamsecure!1
+
+![](dc2pass.png)
+
+Now we will just have to click next like 5 times until we get to the Prerequisites Check section this will basicallytt give us default settings for the Domain Controller and now at the Prerequisites Check section press install which will install all the things we will need to set up our DC and our machine will now reboot itself.
+
+## Installing Windows machine and connecting to the Domain
+
+So now that we have our domain setup lets give this Domain Some machines and some users lets first download our machines you can replicate this process for all 3 Computers i will go through it with one machine 
