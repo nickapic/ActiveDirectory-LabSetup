@@ -111,4 +111,11 @@ Now after clicking on it we will get a pop up for the wizard and we should just 
 
 ![](install1.png)
 
-then like shown previously choose the downloaded file in the Use ISO Image section and press next and then 
+then like shown previously choose the downloaded file in the Use ISO Image section and press next and then we have to select the version of windows we have installed in most cases its already detected by VMWare but if not correct select it from Dropdown menu.
+
+-- Insert picture for installing the AD Machine.
+
+and then press next and uncheck the checkbox which says power on this virtual machine after creation as we still wanna make changes before we start which is mainly removing the Floppy Option in the Hardware tab as this will lead to issues when starting up some times.
+
+Here click on remove button and then our server is ready to boot up.
+
