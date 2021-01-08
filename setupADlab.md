@@ -7,7 +7,7 @@ keywords: [ActiveDirectory, LabSetup]
 subtitle: "AD Lab Setup for Pentesting"
 lang: "en"
 titlepage: true
-titlepage-color: "DC143C"
+titlepage-color: "483D8B"
 titlepage-text-color: "FFFAFA"
 titlepage-rule-color: "FFFAFA"
 titlepage-rule-height: 2
@@ -169,4 +169,78 @@ Now we will just have to click next like 5 times until we get to the Prerequisit
 
 ## Installing Windows machine and connecting to the Domain
 
-So now that we have our domain setup lets give this Domain Some machines and some users lets first download our machines you can replicate this process for all 3 Computers i will go through it with one machine 
+So now that we have our domain setup lets give this Domain Some machines and some users lets first download our machines you can replicate this process for all 3 Computers i will go through it with one machine here now we basically repeat the same steps we took in installing the Windows Server by First opening the menu by clicking the create a new VM option then pressing the Typical setup and then connecting our downloaded iso file and then selectng our OS as for me sometimes 
+
+
+
+
+Then in the instal wizard we press next -> Install Now -> Accept The License -> Custom Install and then let it install itself and then we let it install itself and then it will restart itself.
+
+And lets select our region and our keyboard layout.
+
+And then we will come to this page and here we can choose the Domain Join instead , when it says sign in with Microsoft.
+
+![](joindomain.png)
+
+
+And then we will have to choose the Username and password for this user i will go with the username DarthName and password Empire1sBack.
+
+![](domainpasss.png)
+
+Then you would need to choose and set up 3 security questions you can choose whatever and now after this for the privacy settings for your device we can disable all of them and press accept and then for letting crotona help we will set that to not now.
+
+And then its gonna get everything ready for us and when its boots up and then we should go to the file explorer and click on the Network tab and then click on the Network Discovery where we will have to click on Turn On network discovery and file sharing.
+
+![](network.png)
+
+
+and then we click on Yes,Turn on network discovery and file sharing for all public networks.
+
+![](netyes.png)
+
+and then we can rename the PC which will help us identify the system i renamed this one to DeathStar and here its the same process as the server so you can check the steps there and then restart our machine now.
+
+
+# Adding Users to Our Domain Controllers
+
+Now we will need to add users to our Domain Controller lets boot up our Windows Server 2019 and then enter our password to login which is SecureP@ssword!1 and then the Server DSashboard will pop up for us in there we should click the the Topls tab and select the Add Users and Roles section.
+
+![](adduser.png)
+
+Then here in the Wizard lets traverse and open the Empire.local dropdown menu and select the Users option :
+
+![](userwizard.png)
+
+and then right click in the wizard and select the new -> User option which will give us a pop up for making a new user.
+
+I named my user Anakin Skywalker like below :
+
+![](user1.png)
+
+and then we would need to set the password for this user and then here uncheck the user must change password at next logon and click on the Password Never Expires checkbox.
+
+G00dpassw0rd is the password i chose.
+
+![](pass1.png)
+
+Now lets make a Service Account and a Administrator account.For which we can copy the Administrator User in the Users wizard we had open and then we will get another wizard like before to set the name so lets set the names here. Mine is configured like below. 
+
+![](user2.png)
+
+The password i chose for him was Th3D4rkSide and with the same policy of password never expiring.
+
+And then with the 3rd user lets copy our Previous Palpitine user and make this our SQLDatabase user .
+
+![](user3.png)
+
+Lets for this use the password : Password!1234
+
+Now lets also configure it with a common thing which many domains have for there service accounts. So lets right click on the SQL Database user and select the Properties option and in the Description add a comment In case you forget : Password!1234 and then click apply and press okay.
+
+![](prop1.png)
+
+and then lets make a share which we can do by pressing at the File and Storage Services tab which is in the Left Side of the Server Manager Dashboard and then go to the Shares dropdown.
+
+![](share1.png)
+
+and then click on the Tasks dropdown menu and click on the New Share option and then in the popup lets click Next 2 times after which we can name our share MemoryCore and press Next again and then press next 3 times and clicking on the create button.
