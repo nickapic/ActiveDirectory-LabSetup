@@ -1,6 +1,6 @@
 ---
 title: "Setting up a Active Directory Pentesting Lab"
-author: ["Aniket Chauhan"]
+author: ["Aniket Chauhan, Yevgeni Anischenko, Thomas Klinic"]
 date: "2020-12-24"
 subject: "Markdown"
 keywords: [ActiveDirectory, LabSetup]
@@ -48,7 +48,7 @@ https://www.offensive-security.com/kali-linux-vm-vmware-virtualbox-image-downloa
 Download the 64-bit Vmware version and it will need you to have a torrent downloader like utorrent or bittorent. 
 
 
-Now for Ubuntu we can find the Ubunutu Desktoip 20.04.1 LTS version here. 
+Now for Ubuntu we can find the Ubunutu Desktop 20.04.1 LTS version here. 
 
 Link : https://ubuntu.com/download/desktop
 
@@ -183,7 +183,7 @@ And then we will come to this page and here we can choose the Domain Join instea
 ![](joindomain.png)
 
 
-And then we will have to choose the Username and password for this user i will go with the username DarthName and password Empire1sBack.
+And then we will have to choose the Username and password for this user i will go with the username DarthVader and password Empire1sBack.
 
 ![](domainpasss.png)
 
@@ -245,4 +245,77 @@ and then lets make a share which we can do by pressing at the File and Storage S
 
 and then click on the Tasks dropdown menu and click on the New Share option and then in the popup lets click Next 2 times after which we can name our share MemoryCore and press Next again and then press next 3 times and clicking on the create button.
 
+Now lets boot up our Windows Machine and connect it to the Domain and also make a folder to connect to.
 
+So for this we would need to first get the IP address of our Domain Controller. So fgor this lets boot up our Domain Controller get the the ip address by going to the cmd and typing ipconfig.
+
+![](ipconfig.png)
+
+192.168.146.137 is my IP address for this.
+
+For the Share lets make a folder called Share in the C folder of our Windows 10 Enterprise machine.
+
+Here now on this folder right click and select the Properties option in here then go to the Sharing tab.
+
+![](share2.png)
+
+and now here click on the Share button again.
+
+![](share3.png)
+
+and then click on the done button.
+
+Now lets connect our seleves to the Domain for that lets go on to the network prefences tab like so.
+
+![](net1.png)
+
+and then click at the Change Adapter Options option and then here in the Ethernet0 adapter lets right click and pres on the properties option.
+
+![](net2.png)
+
+and then lets double click on the Internet Protocol Version 4 option which will then pop up a window here we enter the IP of our Domain Controller and choose the options as shown below.
+
+![](net3.png)
+
+and then press okay now lets go to the search bar and search for the word domain and select the option Access Word or School and then click on the connect button and press the Join this device to a local Active Directory domain option in the popup 
+
+![](net4.png)
+
+
+![](net5.png)
+
+and now lets put in the Domain Name we choose in the Join a Domain pop up. Put the Empire.local Domain name and then it will ask for us a username and password.
+
+![](net6.png)
+
+![](net7.png)
+
+
+and then lets enter the password for the Administrator user of the domain (SecureP@ssword!1) and then lets click on the Skip button now lets restart our machine and try to login with the users we made on the Domain Controller.
+
+And now if in the boot up screen if you click on the Other User button in the bopttom left we can login to the askywalker user we made on the Domain Controller and it works we can now login as Anakin Skywalker.
+
+![](askywalker.png)
+
+![](asky.png)
+
+
+# Proof of Connection between the machines
+
+
+So we can already prove that the machines in the Windows Domain are connected as we can login to the users we defined in the Domain Controller in any of those machines and then to show connection with The Ubuntu server which we plan to make our web server . It is very simple to do with python3 for this you can use any project you wanna host on here i will use a simple template to host on this server. 
+
+We choose our templates from here : https://html5up.net/ we chosse the Paradign Shift tempalte you can click on the Free download button then we can cd to the Download folder and unzip the html5 zip file like so.
+
+![](webserver.png)
+
+
+And by traversing to that IP which you can get by doing ifconfig on the machine and traversing to the IP we can see the template we just put in place.
+
+
+![](webserver2.png)
+
+
+![](webserver3.png)
+
+and now we can see that the connections have been established between the machines.
