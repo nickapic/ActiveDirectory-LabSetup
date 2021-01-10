@@ -1,6 +1,6 @@
 ---
 title: "Setting up a Active Directory Pentesting Lab"
-author: ["Aniket Chauhan, Yevgeni Anischenko, Thomas Klinic"]
+author: ["Aniket Chauhan"]
 date: "2020-12-24"
 subject: "Markdown"
 keywords: [ActiveDirectory, LabSetup]
@@ -319,3 +319,35 @@ And by traversing to that IP which you can get by doing ifconfig on the machine 
 ![](webserver3.png)
 
 and now we can see that the connections have been established between the machines.
+
+Before doing this we should start up Kali Machine and in here we need to start the responder tool which is pre installed on our Kali machine to use this we can use the command :
+
+```
+sudo responder -I eth0
+```
+
+Now lets try an active directory attack with the tool responder on our Kali Machine and then boot up our Windows 10 Enterprise machine which we can login with askywalker account the creds for that machine are G00dpassw0rd . And then lets traverse to the File Explorer where  in top bar we should write our share name like so : ```\\MemroyCore\ ```
+
+![](smbrelay.png)
+
+And now it will ask for us login now you can login as askywalker and we get access denied as we dont have access allowed for this user and we can do the same with spalpatine and we get access denied but if you see in the Kali Linux in the terminal we can see all the hashes for these users.
+
+![](responder2.png)
+
+Then we can try cracking these hashes and try to use them with psexec.py to get a shell or if the machine has RDP we can login via RDP.
+
+
+# Workflow of the System
+
+Here we have a Domain Controller which acts as our Main server and manages the accounts for the company , lets call it Empire LLC for our case as an example . Here we have 3 worker machines which are an Employee : Anakin Skywalker and then we have one account for a manager called Senator Palpatine and then one machine is gonna act as our database called SQL Database. 
+
+Then we have a WebServer on the Ubuntu OS which will host our website Paradign Shift which we got from HTML5 website and this the website the developers will work on.
+
+And then Lastly we have our Kali Linux machine which is gonna act as our Outsider Pentesting Machine due to there being no Firewall enabled by us we can easily get access to the Internal Machines of the Enterprise.
+
+
+## Diagram of the System 
+
+![](TheEmpireNetwork.jpeg)
+
+
